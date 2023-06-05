@@ -87,8 +87,10 @@ const authUser = asyncHandler(async (req, res) => {
 // /api/user?search=sajid Khan
 
 const allUsers = asyncHandler(async (req, res) => {
-   
-    
+
+
+    // return res.status(200).send({ status: true, search: req.query })
+
     const keyword = req.query.search ? {
         $or: [
             { name: { $regex: req.query.search, $options: "i" } },
@@ -98,7 +100,9 @@ const allUsers = asyncHandler(async (req, res) => {
         {};
 
 
-    const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+    const users = await User.find({ name: { $regex: req.query.search, $options: "i" } })
+
+    // const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
 
     res.send(users);
 });
