@@ -33,7 +33,7 @@ import { Effect } from "react-notification-badge";
 
 // import { getSender } from "../config/ChatLogic"
 // import UserListItem from "../userAvatar/UserListItem";
-import { getSender } from "../config/Chatlogics"
+import { getSender } from "../../config/Chatlogics"
 import UserListItem from "../UserAvatar/UserListItem"
 import { ChatState } from "../../Context/ChatProvider";
 
